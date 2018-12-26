@@ -4,14 +4,14 @@
     using System.Diagnostics;
     using System.IO;
 
-    using AspNetCoreTemplate.Data;
-    using AspNetCoreTemplate.Data.Common;
-    using AspNetCoreTemplate.Data.Common.Repositories;
-    using AspNetCoreTemplate.Data.Models;
-    using AspNetCoreTemplate.Data.Repositories;
-    using AspNetCoreTemplate.Data.Seeding;
-    using AspNetCoreTemplate.Services.Data;
-    using AspNetCoreTemplate.Services.Messaging;
+    using MyWebAppProject.Data;
+    using MyWebAppProject.Data.Common;
+    using MyWebAppProject.Data.Common.Repositories;
+    using MyWebAppProject.Data.Models;
+    using MyWebAppProject.Data.Repositories;
+    using MyWebAppProject.Data.Seeding;
+    using MyWebAppProject.Services.Data;
+    using MyWebAppProject.Services.Messaging;
 
     using CommandLine;
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -32,14 +32,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AspNetCoreTemplate.Common\AspNetCoreTemplate.Common.csproj" />
-    <ProjectReference Include="..\..\Data\AspNetCoreTemplate.Data.Common\AspNetCoreTemplate.Data.Common.csproj" />
-    <ProjectReference Include="..\..\Data\AspNetCoreTemplate.Data.Models\AspNetCoreTemplate.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Data\AspNetCoreTemplate.Data\AspNetCoreTemplate.Data.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Data\AspNetCoreTemplate.Services.Data.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Mapping\AspNetCoreTemplate.Services.Mapping.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services.Messaging\AspNetCoreTemplate.Services.Messaging.csproj" />
-    <ProjectReference Include="..\..\Services\AspNetCoreTemplate.Services\AspNetCoreTemplate.Services.csproj" />
+    <ProjectReference Include="..\..\MyWebAppProject.Common\MyWebAppProject.Common.csproj" />
+    <ProjectReference Include="..\..\Data\MyWebAppProject.Data.Common\MyWebAppProject.Data.Common.csproj" />
+    <ProjectReference Include="..\..\Data\MyWebAppProject.Data.Models\MyWebAppProject.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\MyWebAppProject.Data\MyWebAppProject.Data.csproj" />
+    <ProjectReference Include="..\..\Services\MyWebAppProject.Services.Data\MyWebAppProject.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\MyWebAppProject.Services.Mapping\MyWebAppProject.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\Services\MyWebAppProject.Services.Messaging\MyWebAppProject.Services.Messaging.csproj" />
+    <ProjectReference Include="..\..\Services\MyWebAppProject.Services\MyWebAppProject.Services.csproj" />
   </ItemGroup>
 
 </Project>
