@@ -13,15 +13,16 @@ namespace MyWebAppProject.Data.Models
         public Category()
         {
             this.SubCategories = new HashSet<SubCategory>();
-            
+            this.Products = new HashSet<Product>();
+
         }
 
         public string Name { get; set; }
 
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+        
         public virtual ICollection<SubCategory> SubCategories{ get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
-      
+
     }
 }
