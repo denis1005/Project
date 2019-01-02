@@ -11,6 +11,7 @@
     using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
+    using MyWebAppProject.Data.Common.Repositories;
 
 #pragma warning disable SA1649 // File name should match first type name
     public class IndexModel : PageModel
@@ -19,11 +20,15 @@
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly IEmailSender emailSender;
+       
+
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender
+
+            )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
@@ -33,6 +38,8 @@
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
+
+        
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -51,6 +58,7 @@
             var userName = await this.userManager.GetUserNameAsync(user);
             var email = await this.userManager.GetEmailAsync(user);
             var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
+            
 
             this.Username = userName;
 
@@ -58,8 +66,10 @@
             {
                 Email = email,
                 PhoneNumber = phoneNumber,
+               
             };
 
+         
             this.IsEmailConfirmed = await this.userManager.IsEmailConfirmedAsync(user);
 
             return this.Page();
@@ -90,6 +100,7 @@
             }
 
             var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
+            
             if (this.Input.PhoneNumber != phoneNumber)
             {
                 var setPhoneResult = await this.userManager.SetPhoneNumberAsync(user, this.Input.PhoneNumber);
@@ -99,7 +110,9 @@
                     throw new InvalidOperationException($"Unexpected error occurred setting phone number for user with ID '{userId}'.");
                 }
             }
-
+            
+         
+            
             await this.signInManager.RefreshSignInAsync(user);
             this.StatusMessage = "Your profile has been updated";
             return this.RedirectToPage();
@@ -134,7 +147,9 @@
             this.StatusMessage = "Verification email sent. Please check your email.";
             return this.RedirectToPage();
         }
-
+        
+      
+        
         public class InputModel
         {
             [Required]
@@ -144,6 +159,11 @@
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+         
+
+
         }
+
     }
 }

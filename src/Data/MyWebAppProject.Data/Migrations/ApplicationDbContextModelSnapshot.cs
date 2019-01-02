@@ -222,7 +222,12 @@ namespace MyWebAppProject.Data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("ProductId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("Categories");
                 });
@@ -308,8 +313,6 @@ namespace MyWebAppProject.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId");
-
                     b.Property<int>("CatrgoryId");
 
                     b.Property<DateTime>("CreatedOn");
@@ -324,11 +327,15 @@ namespace MyWebAppProject.Data.Migrations
 
                     b.Property<decimal>("Price");
 
+                    b.Property<string>("ProductImage");
+
+                    b.Property<int>("SubCategoryId");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("OrderDetailesId");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Products");
                 });
@@ -356,6 +363,27 @@ namespace MyWebAppProject.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("MyWebAppProject.Data.Models.SubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("SubCategories");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -403,6 +431,14 @@ namespace MyWebAppProject.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("MyWebAppProject.Data.Models.Category", b =>
+                {
+                    b.HasOne("MyWebAppProject.Data.Models.Product", "Product")
+                        .WithOne("Category")
+                        .HasForeignKey("MyWebAppProject.Data.Models.Category", "ProductId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("MyWebAppProject.Data.Models.Order", b =>
                 {
                     b.HasOne("MyWebAppProject.Data.Models.ApplicationUser", "ApplicationUser")
@@ -428,13 +464,22 @@ namespace MyWebAppProject.Data.Migrations
 
             modelBuilder.Entity("MyWebAppProject.Data.Models.Product", b =>
                 {
-                    b.HasOne("MyWebAppProject.Data.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
-
                     b.HasOne("MyWebAppProject.Data.Models.OrderDetailes", "OrderDetailes")
                         .WithMany("Products")
                         .HasForeignKey("OrderDetailesId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MyWebAppProject.Data.Models.SubCategory", "SubCategory")
+                        .WithMany("Products")
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("MyWebAppProject.Data.Models.SubCategory", b =>
+                {
+                    b.HasOne("MyWebAppProject.Data.Models.Category", "Category")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
