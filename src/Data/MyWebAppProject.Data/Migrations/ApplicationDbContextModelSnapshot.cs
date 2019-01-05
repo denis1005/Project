@@ -308,10 +308,6 @@ namespace MyWebAppProject.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryId");
-
-                    b.Property<int>("CatrgoryId");
-
                     b.Property<DateTime>("CreatedOn");
 
                     b.Property<string>("Description");
@@ -320,8 +316,6 @@ namespace MyWebAppProject.Data.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("OrderDetailesId");
-
                     b.Property<decimal>("Price");
 
                     b.Property<string>("ProductImage");
@@ -329,10 +323,6 @@ namespace MyWebAppProject.Data.Migrations
                     b.Property<int>("SubCategoryId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("OrderDetailesId");
 
                     b.HasIndex("SubCategoryId");
 
@@ -455,15 +445,6 @@ namespace MyWebAppProject.Data.Migrations
 
             modelBuilder.Entity("MyWebAppProject.Data.Models.Product", b =>
                 {
-                    b.HasOne("MyWebAppProject.Data.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("MyWebAppProject.Data.Models.OrderDetailes", "OrderDetailes")
-                        .WithMany("Products")
-                        .HasForeignKey("OrderDetailesId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("MyWebAppProject.Data.Models.SubCategory", "SubCategory")
                         .WithMany("Products")
                         .HasForeignKey("SubCategoryId")

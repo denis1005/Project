@@ -12,13 +12,11 @@ namespace MyWebAppProject.Data.Models
 
         public decimal Price { get; set; }
 
-        public int CatrgoryId { get; set; }
-        public Category Category { get; set; }
+       
 
         public string Description { get; set; }
 
-        public int OrderDetailesId { get; set; }
-        public OrderDetailes OrderDetailes { get; set; }
+      
 
         public int SubCategoryId { get; set; }
         public SubCategory SubCategory { get; set; }

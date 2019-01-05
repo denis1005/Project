@@ -10,7 +10,7 @@ namespace MyWebAppProject.Data.Models
     {
         public OrderDetailes()
         {
-            this.Products = new HashSet<Product>();
+            
         }
         public int OrderId { get; set; }
         public Order Order { get; set; }
@@ -19,6 +19,6 @@ namespace MyWebAppProject.Data.Models
 
         public Decimal TotalPrice { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        
     }
 }
