@@ -22,6 +22,7 @@
                 .OrderBy(x=>Guid.NewGuid())
                 .Select(x => new IndexProductViewModel
                 {
+                    Id=x.Id,
                     Name = x.Name,
                     Price = x.Price,
                     Description = x.Description,
