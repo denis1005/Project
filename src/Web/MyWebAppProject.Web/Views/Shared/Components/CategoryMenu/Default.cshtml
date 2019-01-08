@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MyWebAppProject.Data.Models.Category>
+<li class="dropdown">
+    <a asp-controller="Categories" 
+       class="nav-link text-dark" data-toggle="dropdown">Categories<b class="caret"></b></a>
+    <ul class="dropdown-menu ">
+        @foreach (var category in Model)
+        {
+            <li class="dropdown-item">
+                <a class="dropdown-item" asp-controller="Categories" asp-action="@category.Name"
+                   asp-route-id="@category.Id">@category.Name</a>
+            </li>
+        }
+        
+    </ul>
+</li>

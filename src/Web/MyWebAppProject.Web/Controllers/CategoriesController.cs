@@ -14,22 +14,48 @@ namespace MyWebAppProject.Web.Controllers
     public class CategoriesController : Controller
     {
         private readonly IRepository<Product> productRepository;
-        private readonly ICategories categoriesService;
+        
 
-        public CategoriesController(IRepository<Product> productRepository,
-            IRepository<Category> categoryRepository)
+        public CategoriesController(IRepository<Product> productRepository)
         {
             this.productRepository = productRepository;
-            this.categoriesService= categoriesService;
+            
         }
-        public IActionResult Men(string name)
+        public IActionResult Men(int id)
         {
-            return View();
-
+            var productes = this.productRepository.All()
+                .Where(x=>x.CategoryId==id)
+                .Select(x => new MenViewModel
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    ProductImage = x.ProductImage
+                });
+            var viewModel = new IndexManViewModel
+            {
+                Productes = productes
+            };
+            return this.View(viewModel);
         }
-        public IActionResult Women()
+        public IActionResult Women(int id)
         {
-            return View();
+            var productes = this.productRepository.All()
+                 .Where(x => x.CategoryId == id)
+                 .Select(x => new MenViewModel
+                 {
+                     Id = x.Id,
+                     Name = x.Name,
+                     Price = x.Price,
+                     Description = x.Description,
+                     ProductImage = x.ProductImage
+                 });
+            var viewModel = new IndexManViewModel
+            {
+                Productes = productes
+            };
+            return this.View(viewModel);
         }
     }
 }

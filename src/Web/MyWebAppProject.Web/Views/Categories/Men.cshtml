@@ -3,7 +3,33 @@
     ViewData["Title"] = "Men";
 }
 
-<h1>Men</h1>
+
+<h1 class="text-center" id="Heading">Men's colection of shoes</h1>
+
+
+
+       
+  
+    <!-- Page Features -->
+    <div class="row text-center">
+        @foreach (var product in Model.Productes)
+        {
+
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src=@product.ProductImage alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Name</h4>
+                        <p class="card-text">@product.Price .lv</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" sp-area="" asp-controller="Details" asp-action="Details" asp-route-id="@product.Id">Details </a>
+                    </div>
+                </div>
+            </div>
+        }
+    
 
 
 
