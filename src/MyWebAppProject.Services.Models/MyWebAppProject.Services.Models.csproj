@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\MyWebAppProject.Data.Models\MyWebAppProject.Data.Models.csproj" />
+    <ProjectReference Include="..\Services\MyWebAppProject.Services.Mapping\MyWebAppProject.Services.Mapping.csproj" />
+    <ProjectReference Include="..\Services\MyWebAppProject.Services\MyWebAppProject.Services.csproj" />
+  </ItemGroup>
+
+</Project>

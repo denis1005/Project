@@ -1,0 +1,43 @@
+﻿@model MyWebAppProject.Web.ViewModels.Details.DetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<<div class="product_image_area">
+    <div class="container">
+        <div class="row s_product_inner">
+            <div class="col-lg-6">
+                <div class="s_Product_carousel">
+                    <div class="single-prd-item">
+                        <img class="img-fluid" src=@Model.ProductImage alt="">
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="s_product_text">
+                    <h3>Name:@Model.Name</h3>
+                    <h2>Price:@Model.Price .Lv</h2>
+                    
+                    <p>
+                       @Model.Description
+                    </p>
+                    <div class="product_count">
+                        <label for="qty">Quantity:</label>
+                        <select class="custom-select custom-select-lg mb-3">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        
+                    </div>
+                       <button type="button" class="btn btn-primary btn-lg">Add to Card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

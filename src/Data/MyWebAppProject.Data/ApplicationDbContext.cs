@@ -30,7 +30,7 @@
         public DbSet<OrderDetailes> OrderDetailes { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<SubCategory> SubCategories { get; set; }
+       
 
 
         public override int SaveChanges() => this.SaveChanges(true);

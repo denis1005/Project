@@ -19,7 +19,7 @@
         public IActionResult Index()
         {
             var productes = this.productRepository.All()
-                .OrderBy(x=>Guid.NewGuid())
+                .OrderBy(x=>Guid.NewGuid()).Take(8)
                 .Select(x => new IndexProductViewModel
                 {
                     Id=x.Id,

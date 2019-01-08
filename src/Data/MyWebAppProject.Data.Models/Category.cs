@@ -12,7 +12,7 @@ namespace MyWebAppProject.Data.Models
     {
         public Category()
         {
-            this.SubCategories = new HashSet<SubCategory>();
+            this.Products = new HashSet<Product>();
          
 
         }
@@ -20,7 +20,7 @@ namespace MyWebAppProject.Data.Models
         public string Name { get; set; }
 
         
-        public virtual ICollection<SubCategory> SubCategories{ get; set; }
+        public virtual ICollection<Product> Products{ get; set; }
       
 
 
